@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: stock-screener
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn web_dash_wrapper:server"
+    pythonVersion: 3.12
+    envVars:
+      - key: PORT
+        value: 10000
